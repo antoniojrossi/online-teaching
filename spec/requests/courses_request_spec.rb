@@ -40,12 +40,26 @@ RSpec.describe 'Courses', type: :request do
       end
 
       it 'returns aditional info of error' do
+        # TODO: Crear custom matchers
         expect(json['errors']).not_to be_empty
         expect(json['errors'].count).to eq(1)
         expect(json['errors'].first['id']).not_to be_empty
         expect(json['errors'].first['code']).to match(/not-found/)
         expect(json['errors'].first['status']).to match(404)
         expect(json['errors'].first['detail']).to match(/Couldn't find Course/)
+      end
+    end
+  end
+
+  describe 'POST /courses' do
+    let(:valid_attributes) { { title: 'How to draw' } }
+
+    context 'when the request is valid' do
+      before { post '/courses', params: valid_attributes }
+
+      it 'creates a course' do
+        expect(json['data']).not_to be_empty
+        expect(json['data']['attributes']['title']).to match(/#{valid_attributes[:title]}/)
       end
     end
   end
