@@ -57,6 +57,9 @@ RSpec.describe 'Courses', type: :request do
     context 'when the request is valid' do
       before { post '/courses', params: valid_attributes }
 
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
       it 'creates a course' do
         expect(json['data']).not_to be_empty
         expect(json['data']['attributes']['title']).to match(/#{valid_attributes[:title]}/)

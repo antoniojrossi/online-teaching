@@ -86,6 +86,7 @@ RSpec.configure do |config|
 
   # Start the transaction strategy as examples are run
   config.around(:each) do |example|
+    Faker::UniqueGenerator.clear
     DatabaseCleaner.cleaning do
       example.run
     end

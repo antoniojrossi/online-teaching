@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
 
   def create
     course = Course.create!(course_params)
-    json_response(course)
+    json_response(course, status: 201)
   end
 
   private
