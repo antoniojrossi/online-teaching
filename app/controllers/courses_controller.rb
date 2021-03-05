@@ -2,17 +2,17 @@ class CoursesController < ApplicationController
   def index
     # TODO: Remove .all
     courses = Course.all
-    json_response(courses)
+    json_response courses
   end
 
   def show
     course = Course.find(params[:id])
-    json_response(course)
+    json_response course
   end
 
   def create
     course = Course.create!(course_params)
-    json_response(course, status: 201)
+    json_response course, status: 201
   end
 
   private

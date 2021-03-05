@@ -1,6 +1,6 @@
 module Response
-  def json_response(object, options: {}, status: :ok)
-    render jsonapi: object, **options, status: status
+  def json_response(object, options = {})
+    render jsonapi: object, **options
   end
 
   def json_error_response(id:, status:, code:, detail:)
