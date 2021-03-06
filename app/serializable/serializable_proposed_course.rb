@@ -5,5 +5,4 @@ class SerializableProposedCourse < JSONAPI::Serializable::Resource
   
   has_one :teacher
   has_one :course
-  # TODO: mirar como añadir caché
 end

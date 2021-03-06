@@ -4,4 +4,5 @@ class Teacher < ApplicationRecord
 
   validates_presence_of :email
   validates :email, uniqueness: { case_sensitive: true }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
