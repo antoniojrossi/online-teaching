@@ -40,13 +40,11 @@ RSpec.describe 'Courses', type: :request do
       end
 
       it 'returns aditional info of error' do
-        # TODO: Crear custom matchers
-        expect(json['errors']).not_to be_empty
-        expect(json['errors'].count).to eq(1)
-        expect(json['errors'].first['id']).not_to be_empty
-        expect(json['errors'].first['code']).to match(/not-found/)
-        expect(json['errors'].first['status']).to match(404)
-        expect(json['errors'].first['detail']).to match(/Couldn't find Course/)
+        expect(json_errors).not_to be_empty
+        expect(json_errors.count).to eq(1)
+        expect(json_error['id']).not_to be_empty
+        expect(json_error['code']).to match(/not-found/)
+        expect(json_error['detail']).to match(/Couldn't find Course/)
       end
     end
   end

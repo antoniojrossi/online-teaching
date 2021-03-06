@@ -3,8 +3,7 @@ module Response
     render jsonapi: object, **options
   end
 
-  def json_error_response(id:, status:, code:, detail:)
-    render jsonapi_errors: { id: id, status: status, code: code, detail: detail },
-           status: status
+  def json_error_response(error, status:)
+    render jsonapi_errors: error, status: status
   end
 end

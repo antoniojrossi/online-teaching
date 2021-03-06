@@ -41,6 +41,13 @@ RSpec.describe 'ProposedCourses', type: :request do
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
+
+      it 'returns aditional info of error' do
+        expect(json_error).not_to be_empty
+        expect(json_error['id']).not_to be_empty
+        expect(json_error['code']).to match(/unprocessable-entity/)
+        expect(json_error['detail']).to match(/Course must exist/)
+      end
     end
 
     context 'when the request has no teacher' do
@@ -51,6 +58,30 @@ RSpec.describe 'ProposedCourses', type: :request do
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
+      end
+
+      it 'returns aditional info of error' do
+        expect(json_errors).not_to be_empty
+        expect(json_error['id']).not_to be_empty
+        expect(json_error['code']).to match(/unprocessable-entity/)
+        expect(json_error['detail']).to match(/Teacher must exist/)
+      end
+    end
+
+    context 'when the request has non existent teacher and course' do
+      before { post '/proposed_courses', params: { teacher_id: 0, course_id: 0 } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns aditional info of errors' do
+        expect(json_errors).not_to be_empty
+        expect(json_errors.size).to eq(2)
+        expect(json_error_codes).to all(match /unprocessable-entity/)
+        expect(json_error_ids).to all(be_truthy)
+        expect(json_error_details).to include(/Teacher must exist/)
+        expect(json_error_details).to include(/Course must exist/)
       end
     end
   end
