@@ -35,6 +35,7 @@ module RequestSpecHelper
     json['included'].map { |relation| relation['relationships'] }
   end
 
+  # TODO: Eliminar si no lo vuelvo a usar
   def number_of_votes_for(type:, id:)
     pp json_included
     pp type
