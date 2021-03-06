@@ -3,7 +3,7 @@ module V1
     before_action :set_teacher, only: [:show, :update, :destroy]
 
     def index
-      teachers = Teacher.all
+      teachers = Teacher.order(:created_at).includes(:votes)
       paginate json: teachers
     end
 

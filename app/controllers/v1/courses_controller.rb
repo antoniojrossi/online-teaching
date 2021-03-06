@@ -3,7 +3,7 @@ module V1
     before_action :set_course, only: [:show, :update, :destroy]
 
     def index
-      courses = Course.all
+      courses = Course.order(:created_at).includes([:votes])
       paginate json: courses
     end
 
