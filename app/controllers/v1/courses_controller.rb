@@ -2,11 +2,9 @@ module V1
   class CoursesController < ApplicationController
     before_action :set_course, only: [:show, :update, :destroy]
 
-    MAX_ITEMS_PER_PAGE = 10
-
     def index
-      courses = Course.all.paginate(page: params[:page], per_page: MAX_ITEMS_PER_PAGE)
-      json_response courses
+      courses = Course.all
+      paginate json: courses
     end
 
     def show

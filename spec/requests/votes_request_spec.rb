@@ -22,7 +22,6 @@ RSpec.describe "Votes", type: :request do
       it 'returns info about new vote' do
         expect(json_data).not_to be_empty
         expect(json_data['id']).to be_present
-        expect(json_data['attributes']['votable_type']).to eq('Teacher')
       end
     end
 
@@ -39,8 +38,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/must exist/)
         end
       end
 
@@ -54,8 +52,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/must exist/)
         end
       end
 
@@ -70,8 +67,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/has already been taken/)
         end
       end
     end
@@ -99,7 +95,6 @@ RSpec.describe "Votes", type: :request do
       it 'returns info about new vote' do
         expect(json_data).not_to be_empty
         expect(json_data['id']).to be_present
-        expect(json_data['attributes']['votable_type']).to eq('Course')
       end
     end
 
@@ -116,8 +111,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/must exist/)
         end
       end
 
@@ -131,8 +125,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/must exist/)
         end
       end
 
@@ -147,8 +140,7 @@ RSpec.describe "Votes", type: :request do
 
         it 'returns aditional info of error' do
           expect(json_error).not_to be_empty
-          expect(json_error['id']).not_to be_empty
-          expect(json_error['code']).to match(/unprocessable-entity/)
+          expect(json_error['detail']).to match(/has already been taken/)
         end
       end
     end

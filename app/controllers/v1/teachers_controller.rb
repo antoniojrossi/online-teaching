@@ -2,11 +2,9 @@ module V1
   class TeachersController < ApplicationController
     before_action :set_teacher, only: [:show, :update, :destroy]
 
-    MAX_ITEMS_PER_PAGE = 10
-
     def index
-      teachers = Teacher.all.paginate(page: params[:page], per_page: MAX_ITEMS_PER_PAGE)
-      json_response teachers
+      teachers = Teacher.all
+      paginate json: teachers
     end
 
     def show

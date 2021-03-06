@@ -42,8 +42,7 @@ RSpec.describe "Teachers", type: :request do
       it 'returns aditional info of error' do
         expect(json_errors).not_to be_empty
         expect(json_errors.count).to eq(1)
-        expect(json_error['id']).not_to be_empty
-        expect(json_error['code']).to match(/not-found/)
+        expect(json_error['detail']).to match(/not found/)
       end
     end
   end
@@ -73,8 +72,8 @@ RSpec.describe "Teachers", type: :request do
       it 'returns adition info of error' do
         expect(json_errors).not_to be_empty
         expect(json_errors.count).to eq(1)
-        expect(json_error['id']).not_to be_empty
-        expect(json_error['code']).to match(/unprocessable-entity/)
+
+        expect(json_error['detail']).to match(/is invalid/)
       end
     end
   end
