@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
-  resources :courses, only: [:index, :show, :create], concerns: :votable
+  resources :courses, concerns: :votable
   resources :teachers, only: [:index], concerns: :votable
 
   resources :proposed_courses, only: [:index, :create]

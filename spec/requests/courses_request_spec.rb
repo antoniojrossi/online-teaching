@@ -64,4 +64,24 @@ RSpec.describe 'Courses', type: :request do
       end
     end
   end
+
+  describe 'PUT /courses/:id' do
+    let(:valid_attributes) { { title: 'How to sculpt' } }
+
+    context 'when ther course exists' do
+      before { put "/courses/#{course_id}", params: valid_attributes }
+
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)  
+      end
+    end
+  end
+
+  describe 'DELETE /courses/:id' do
+    before { delete "/courses/#{course_id}" }
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
+    end
+  end
 end
