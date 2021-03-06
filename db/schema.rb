@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_155650) do
+ActiveRecord::Schema.define(version: 2021_03_06_092949) do
 
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2021_03_05_155650) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_votes_on_teacher_id"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable"
+  end
+
   add_foreign_key "proposed_courses", "courses"
   add_foreign_key "proposed_courses", "teachers"
+  add_foreign_key "votes", "teachers"
 end
