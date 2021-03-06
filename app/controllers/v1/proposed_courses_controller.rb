@@ -1,7 +1,9 @@
 module V1
   class ProposedCoursesController < ApplicationController
     def index
-      proposed_courses = ProposedCourse.order(:created_at).includes([:teacher, :course]).includes(teacher: :votes, course: :votes)
+      proposed_courses = ProposedCourse.order(:created_at)
+        .includes([:teacher, :course])
+        .includes(teacher: :votes, course: :votes)
       paginate json: proposed_courses, include: [:teacher, :course] 
     end
 
