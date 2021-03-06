@@ -22,4 +22,8 @@ module RequestSpecHelper
   def json_error
     json_errors.first
   end
+
+  def json_data
+    json['data']
+  end
 end

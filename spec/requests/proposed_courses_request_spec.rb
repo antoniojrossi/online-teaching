@@ -25,6 +25,7 @@ RSpec.describe 'ProposedCourses', type: :request do
       end
 
       it 'creates a proposed course' do
+        # TODO: Comprobar que en base de datos se ha creado. Revisar el resto de llamadas post
         expect(json).not_to be_empty
         expect(json).to have_key('data')
         expect(json['data']['relationships']['course']['data']['id']).to eq(course.id.to_s)
