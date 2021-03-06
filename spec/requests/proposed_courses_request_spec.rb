@@ -6,9 +6,15 @@ RSpec.describe 'ProposedCourses', type: :request do
     before { get '/proposed_courses' }
 
     it 'returns proposed courses' do
-      expect(json).not_to be_empty
-      expect(json).to have_key('data')
-      expect(json['data'].count).to eq(5)
+      expect(json_data).not_to be_empty
+      expect(json_data.count).to eq(5)
+    end
+
+    context 'recieving votes info' do
+      it 'returns vote info' do
+        expect(json_included).not_to be_empty
+        expect(json_included_relationships).to all(have_key('votes'))
+      end
     end
   end
 
