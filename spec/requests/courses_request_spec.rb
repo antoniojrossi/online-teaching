@@ -44,7 +44,6 @@ RSpec.describe 'Courses', type: :request do
         expect(json_errors.count).to eq(1)
         expect(json_error['id']).not_to be_empty
         expect(json_error['code']).to match(/not-found/)
-        expect(json_error['detail']).to match(/Couldn't find Course/)
       end
     end
   end
