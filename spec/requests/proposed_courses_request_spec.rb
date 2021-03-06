@@ -84,5 +84,23 @@ RSpec.describe 'ProposedCourses', type: :request do
         expect(json_error_details).to include(/Course must exist/)
       end
     end
+
+    context 'when the request teacher and course are already proposed' do
+      let!(:proposed_course) { create(:proposed_course) }
+      let(:duplicate_attributes) { { teacher_id: proposed_course.teacher.id, course_id: proposed_course.course.id } }
+
+      before { post '/proposed_courses', params: duplicate_attributes }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns aditional info of error' do
+        expect(json_errors).not_to be_empty
+        expect(json_error['id']).not_to be_empty
+        expect(json_error['code']).to match(/unprocessable-entity/)
+        expect(json_error['detail']).to match(/Teacher has already been taken/)
+      end
+    end
   end
 end
