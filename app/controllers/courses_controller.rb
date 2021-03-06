@@ -1,7 +1,8 @@
 class CoursesController < ApplicationController
+  MAX_ITEMS_PER_PAGE = 10
+
   def index
-    # TODO: Remove .all
-    courses = Course.all
+    courses = Course.all.paginate(page: params[:page], per_page: MAX_ITEMS_PER_PAGE)
     json_response courses
   end
 

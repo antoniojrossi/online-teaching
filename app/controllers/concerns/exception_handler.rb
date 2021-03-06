@@ -6,7 +6,7 @@ module ExceptionHandler
       error = { id: SecureRandom.uuid, code: 'not-found', detail: e.message }
 
       logger.error("ERROR - #{error[:id]} - #{error}")
-      
+
       json_error_response(error, status: 404)
     end
 
