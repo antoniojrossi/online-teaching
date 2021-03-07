@@ -67,7 +67,7 @@ En el directorio _utils_ se encuentran disponibles, listos para su importación 
 ### Active model serializers vs jsonapi_rb
 El desarrollo final de este ejercicio hace uso de la gema [active_model_serializers](https://github.com/rails-api/active_model_serializers) para serializar los datos de los modelos a formato JSON.
 
-Inicialmente se planteó el uso de la gema [jsonapi_rb](http://jsonapi-rb.org/),pero algunos problemas con la paginación (No parecía que estuviera completamente implementada y carecía del tiempo para añadirla) hizo que finalmente se empleara active_model_serializer. De todas formas se ha dejado en la rama _with_jsonpi_rb_serializer_ el mismo desarrollo (con cambios menores) haciendo uso de la gema jsonapi-rb.
+Inicialmente se planteó el uso de la gema [jsonapi_rb](http://jsonapi-rb.org/),pero algunos problemas con la paginación (No parecía que estuviera completamente implementada y carecía del tiempo para añadirla) hizo que finalmente se empleara active_model_serializer. De todas formas se ha dejado en la rama _jsonapi_rb_serializer_ el mismo desarrollo (con cambios menores) haciendo uso de la gema jsonapi-rb.
 
 Aunque para proyectos pequeños la diferencia de rendimiento entre ambas alternativas es considerable, y entendiendo que para proyectos de mayor embergadura, el cuello de botella del rendimiento puede encontrarse lejos del serializador, es interesante estudiar alternativas más eficientes a active_model_serializer.
 
