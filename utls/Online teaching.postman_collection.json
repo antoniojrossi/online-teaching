@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "4cbffa27-8539-401f-bd36-a4ec7b5d1b33",
+		"name": "Online teaching",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Courses listing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses?title=How to paint like a pro",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "How to paint like a pro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/:id/?title=How to paint like a pro",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								":id",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "How to paint like a pro"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete course",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teachers",
+			"item": [
+				{
+					"name": "Teachers listing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teacher detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers?email=teacher@example.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "teacher@example.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update teacher",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers/:id/?email=teacher_alias@example.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								":id",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "teacher_alias@example.com"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete teacher",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proposed courses",
+			"item": [
+				{
+					"name": "Proposed courses listing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/proposed_courses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"proposed_courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Propose course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/proposed_courses?teacher_id=1&course_id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"proposed_courses"
+							],
+							"query": [
+								{
+									"key": "teacher_id",
+									"value": "1"
+								},
+								{
+									"key": "course_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votes",
+			"item": [
+				{
+					"name": "Vote for teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/teachers/:teacher_id/votes?voter_id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								":teacher_id",
+								"votes"
+							],
+							"query": [
+								{
+									"key": "voter_id",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "teacher_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote for course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.online-teaching.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/:course_id/votes?voter_id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								":course_id",
+								"votes"
+							],
+							"query": [
+								{
+									"key": "voter_id",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "course_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
