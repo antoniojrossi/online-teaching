@@ -1,12 +1,6 @@
 module ExceptionHandler
   extend ActiveSupport::Concern
 
-  ErrorInfo = Struct.new(:id, :code, :detail) do
-    def initialize(id: SecureRandom.uuid, code:, detail:)
-      super(id, code, detail)
-    end
-  end
-
   included do
     rescue_from ActiveRecord::RecordNotFound do |e|
       model = e.model.constantize.new
