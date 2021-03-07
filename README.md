@@ -14,6 +14,7 @@ Es necesario disponer de las siguientes dependencias antes de instalar el proyec
 $ git clone git@github.com:antoniojrossi/online-teaching.git
 $ cd online-teaching
 $ bundle install
+$ bundle exec rails db:migrate
 ```
 
 ## Ejecución de tests
@@ -26,6 +27,11 @@ $ bundle exec rspec
 Antes de hacer uso de la aplicación es necesario lanzar el servidor web:
 ```
 $ bundle exec rails s
+```
+
+Para facilitar la comprobación del API se han creado datos dummies que peuden ser cargados mediante la siguiente instrucción:
+```
+$ bundle exec rails db:seed
 ```
 
 ### Cursos
@@ -62,7 +68,7 @@ $ bundle exec rails s
 En el directorio _utils_ se encuentran disponibles, listos para su importación en la aplicación [postman](https://www.postman.com/downloads/), la colección y entorno creados para poder probar cada endpoint del API publicada desde dicha aplicación.
 
 
-## Notas finales
+## Comentarios
 
 ### Active model serializers vs jsonapi_rb
 El desarrollo final de este ejercicio hace uso de la gema [active_model_serializers](https://github.com/rails-api/active_model_serializers) para serializar los datos de los modelos a formato JSON.
@@ -74,6 +80,29 @@ Aunque para proyectos pequeños la diferencia de rendimiento entre ambas alterna
 ### Versionado de API
 Se ha implantado un pequeño sistema de versionado del API haciendo uso de la cabecera _Accept_. Este versionado se encuentra definido en la clase [ApiVersion](https://github.com/antoniojrossi/online-teaching/blob/main/app/lib/api_version.rb).
 
-### Versionado completo de gemas
+### Gemas añadidas
+Todas las gemas añadidas tienen la versión fijada (salvo para incrementos menores de versión) para evitar posibles problemas si se actualizan.
 
+#### [active_model_serializers](https://github.com/rails-api/active_model_serializers)
+Comentada anteriormente.
 
+#### [will_paginate](https://github.com/mislav/will_paginate) y [api_pagination](https://github.com/davidcelis/api-pagination)
+Añadidas para implementar la funcionalidad de paginación en los listados de recursos. Funcionan muy bien con active_model_serializers junto con el serializador jsonapi.
+
+#### [rspec_rails](https://github.com/rspec/rspec-rails)
+Framework de testing usado para desarrollar la aplicación. Minitest es una opción válida, pero rspec está mejor soportado por la comunidad.
+
+#### [faker](https://github.com/faker-ruby/faker)
+Generación de datos falsos usados principalmente para los tests. Funciona muy bien junto factorybot.
+
+#### [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+Generación de fixtures usadas para el testing. Para proyectos pequeños se puede usar la solución por defecto de rails, para desarrollos más complejos, esta gema suele dar mejores resultados.
+
+#### [shoulda_matchers](https://github.com/thoughtbot/shoulda-matchers)
+"Matchers" adicionales para un fácil testeo de modelos de Rails (validacions y asociaciones)
+
+#### [bullet](https://github.com/flyerhzm/bullet)
+Gema que detecta la ocurrencia de consultas innecesarias si se hiciera uso de la funcionalidad "eager loading" de rails. Muy útil para detectar puntos de mejora de rendimiento.
+
+#### [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
+Limpia la base de datos entre ejecuciones de tests.
