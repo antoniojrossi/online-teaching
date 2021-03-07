@@ -35,6 +35,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Hack to force use of host in url helpers for serializers.
+  # It should be refactored a added to a config file
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
   config.log_level = :info
   config.log_tags = [ :request_id ]
 
