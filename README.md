@@ -83,6 +83,9 @@ Aunque para proyectos pequeños la diferencia de rendimiento entre ambas alterna
 ### Versionado de API
 Se ha implantado un pequeño sistema de versionado del API haciendo uso de la cabecera _Accept_. Este versionado se encuentra definido en la clase [ApiVersion](https://github.com/antoniojrossi/online-teaching/blob/main/app/lib/api_version.rb).
 
+### Autenticación y autorización
+Como no era un requisito y con el cambio de serializador no había mucho tiempo extra, no se ha implementado ningún sistema de autenticación para hacer uso del API. No obstante la solución que se habría desarrollado para esta tarea es hacer uso del standard JWT (Json Web Token) con la gema [jwt](https://github.com/jwt/ruby-jwt). La idea es que cada usuario (profesor en este caso) solicitara un token usando su email y una constraseña. Tras la correcta validación de la misma, se le daría el token con caducidad de una hora. Este token viajaría en las sucesivas peticiones que haga el usaurio para identificarlo en la cabecera 'Authorization'.
+
 ### Gemas añadidas
 Todas las gemas añadidas tienen la versión fijada (salvo para incrementos menores de versión) para evitar posibles problemas si se actualizan.
 
