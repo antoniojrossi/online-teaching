@@ -74,3 +74,6 @@ Aunque para proyectos pequeños la diferencia de rendimiento entre ambas alterna
 ### Versionado de API
 Se ha implantado un pequeño sistema de versionado del API haciendo uso de la cabecera _Accept_. Este versionado se encuentra definido en la clase [ApiVersion](https://github.com/antoniojrossi/online-teaching/blob/main/app/lib/api_version.rb).
 
+### Versionado completo de gemas
+
+
