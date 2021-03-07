@@ -1,3 +1,4 @@
+# Central point of exception handling to mantain as clean as posbile the controllers
 module ExceptionHandler
   extend ActiveSupport::Concern
 

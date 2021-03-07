@@ -70,6 +70,9 @@ En el directorio _utils_ se encuentran disponibles, listos para su importación 
 
 ## Comentarios
 
+### JsonAPI
+En este desarrollo se usa la especificación [json:api](https://jsonapi.org) para formatear los json de respuesta. Para proyectos pequeños puede resultar un tanto verbosa, pero puede ser muy beneficioso seguir la especificación en proyectos grandes para facilitar el desarrollo de los clientes.
+
 ### Active model serializers vs jsonapi_rb
 El desarrollo final de este ejercicio hace uso de la gema [active_model_serializers](https://github.com/rails-api/active_model_serializers) para serializar los datos de los modelos a formato JSON.
 
