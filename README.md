@@ -23,7 +23,7 @@ $ bundle exec rails db:migrate
 $ bundle exec rspec
 ```
 
-## Uso
+## Uso y definición del API
 Antes de hacer uso de la aplicación es necesario lanzar el servidor web:
 ```
 $ bundle exec rails s
