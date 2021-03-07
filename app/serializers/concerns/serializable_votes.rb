@@ -4,7 +4,7 @@ module SerializableVotes
   included do
     has_many :votes do      
       meta do
-        { count: @object.votes.count }
+        { total_votes: @object.votes.count }
       end
     end
   end
