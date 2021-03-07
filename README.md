@@ -29,7 +29,7 @@ Antes de hacer uso de la aplicación es necesario lanzar el servidor web:
 $ bundle exec rails s
 ```
 
-Para facilitar la comprobación del API se han creado datos dummies que peuden ser cargados mediante la siguiente instrucción:
+Para facilitar la comprobación del API se han creado datos dummies que pueden ser cargados mediante la siguiente instrucción:
 ```
 $ bundle exec rails db:seed
 ```
